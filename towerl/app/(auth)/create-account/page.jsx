@@ -21,7 +21,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const jwt = sessionStorage.getItem('jwt');
+    const jwt = localStorage.getItem('jwt');
     if (jwt) {
       toast("You're already signed in")
       router.push('/')
@@ -40,8 +40,9 @@ export default function LoginPage() {
       const { jwt, user } = resp.data;
 
       // ✅ Lưu JWT và user
-      sessionStorage.setItem("jwt", jwt);
-      sessionStorage.setItem("user", JSON.stringify(user));
+      ////////////////////////////////////////
+      localStorage.setItem("jwt", jwt);
+      localStorage.setItem("user", JSON.stringify(user));
 
       // ✅ Gọi API cập nhật name
       try {

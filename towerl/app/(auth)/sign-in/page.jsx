@@ -16,7 +16,8 @@ export default function SigninPage() {
   const router = useRouter();
   const [loader, setLoader] = useState()
   useEffect(() => {
-    const jwt = sessionStorage.getItem('jwt');
+    
+    const jwt = localStorage.getItem('jwt');
     if(jwt){
       toast("You're already signed in")
       router.push('/')
@@ -27,10 +28,10 @@ export default function SigninPage() {
     setLoader(true)
     GlobalApi.postSigninInformation(userEmail, password).then(resp =>{
       console.log('username here: ', resp.data.user)
-      console.log(sessionStorage.getItem('user'))
+      console.log(localStorage.getItem('user'))
       console.log(resp.data.jwt)
-      sessionStorage.setItem("user", JSON.stringify(resp.data.user)),
-      sessionStorage.setItem("jwt", resp.data.jwt)
+      localStorage.setItem("user", JSON.stringify(resp.data.user)),
+      localStorage.setItem("jwt", resp.data.jwt)
 
       toast("Login Successfully")
       router.push('/')

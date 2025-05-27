@@ -16,7 +16,7 @@ function ProductList({ getProductList }) {
                 lg:grid-cols-4 lg:gap-7 lg:mt-4"
             >
                 {getProductList.map((product, index) => (
-                    console.log("Products:", product.name, "| Slug:", product.slug),
+                    // console.log("Products:", product.name, "| Slug:", product.slug),
                     <div key={index}>
                         <Link
                             href={'/product/' + encodeURIComponent(product.slug)}

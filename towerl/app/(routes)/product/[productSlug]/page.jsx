@@ -41,11 +41,11 @@ async function productDetail({ params }) {
 
     return (
         <div>
-            
+
             <div className="px-5 py-5 sm:px-10 md:px-12 lg:px-15x">
                 {productDetail.map((product) => (
                     console.log("product's id infor:", product.id),
-                    console.log("type of product: ", typeof(product.id)),
+                    console.log("type of product: ", typeof (product.id)),
                     <div key={product.id}>
                         <div className="flex flex-col sm:grid sm:grid-cols-3 p-5 bg-gray-50">
                             {/* Image */}
@@ -138,11 +138,13 @@ async function productDetail({ params }) {
                                     so I have to create a new file to execute the quantity and put it into page.jsx 
                                 */}
 
-                                    <ProductClientControls 
-                                        productId = {product.id}
-                                        price = {product.price}
-                                        sellingPrice = {product.sellingPrice}
-                                    />
+                                    <ProductClientControls
+  productSlug={product.slug}  // hoặc đúng slug của product
+  price={product.price}
+  sellingPrice={product.sellingPrice}
+/>
+
+
 
                                     {/* Add to cart button is also in ProductClientControls, 
                                     because I need to get the quantity client chooses to execute the next step 
